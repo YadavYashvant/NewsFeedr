@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">RecyclerViewApp</string>
+    <string-array name="names">
+        <item>India </item>
+        <item>Mural </item>
+        <item>Painting </item>
+        <item>Stationary </item>
+    </string-array>
+    <string-array name="description">
+        <item>This is description. </item>
+        <item>This is description. </item>
+        <item>This is description. </item>
+        <item>This is description. </item>
+    </string-array>
+</resources>
