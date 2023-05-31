@@ -7,10 +7,14 @@ import android.widget.TextView
 import androidx.appcompat.view.menu.MenuView.ItemView
 import androidx.recyclerview.widget.RecyclerView
 
-class NewsListAdapter(private val items: ArrayList<String>): RecyclerView.Adapter<NewsViewsHolder>() {
+class NewsListAdapter(private val items: ArrayList<String>,private val listener: newsItemClicked): RecyclerView.Adapter<NewsViewsHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewsHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_views,parent,false)
-        return NewsViewsHolder(view)
+        val Viewholder = NewsViewsHolder(view)
+        view.setOnClickListener {
+            listener.OnItemClicked(items[Viewholder.adapterPosition])
+        }
+        return Viewholder
     }
 
     override fun getItemCount(): Int {
@@ -24,4 +28,8 @@ class NewsListAdapter(private val items: ArrayList<String>): RecyclerView.Adapte
 }
 class NewsViewsHolder(itemView: View) :RecyclerView.ViewHolder(itemView) {
     val titleView: TextView = itemView.findViewById(R.id.titleItem)
+}
+
+interface newsItemClicked {
+    fun OnItemClicked(Item: String)
 }
