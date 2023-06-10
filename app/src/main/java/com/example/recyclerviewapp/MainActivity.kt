@@ -1,8 +1,11 @@
 package com.example.recyclerviewapp
 
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Window
 import android.widget.Toast
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.AuthFailureError
@@ -66,6 +69,8 @@ class MainActivity : AppCompatActivity(), newsItemClicked {
     }
 
     override fun OnItemClicked(Item: News) {
-
+        val builder = CustomTabsIntent.Builder()
+        val customTabsIntent = builder.build()
+        customTabsIntent.launchUrl(this,Uri.parse(Item.url))
     }
 }
