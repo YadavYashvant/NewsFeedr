@@ -5,11 +5,16 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.android.volley.AuthFailureError
 import com.android.volley.Request
+import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import kotlin.jvm.Throws
 
 class MainActivity : AppCompatActivity(), newsItemClicked {
+
+    private lateinit var mAdapter:NewsListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -17,18 +22,20 @@ class MainActivity : AppCompatActivity(), newsItemClicked {
         setContentView(R.layout.activity_main)
         val recyclerView = findViewById<RecyclerView>(R.id.RvLayout)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        val items = fetchdata()
-        val adapter = NewsListAdapter(items,this)
-        recyclerView.adapter = adapter
+        fetchdata()
+        mAdapter = NewsListAdapter(this)
+        recyclerView.adapter = mAdapter
 
     }
 
     private fun fetchdata(){
+        //val queue = Volley.newRequestQueue(this)
         val url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=eeed14b913a74d1291c2ff7d426cf3b8"
-        val queue = Volley.newRequestQueue(this)
-        val jsonObjectRequest = JsonObjectRequest(
-            Request.Method.GET,url,null,
-            {
+        val getRequest:JsonObjectRequest = object : JsonObjectRequest(
+            Request.Method.GET,
+            url,
+            null,
+            Response.Listener{
                val newsJsonArray = it.getJSONArray("articles")
                val newsArray = ArrayList<News>()
                 for(i in 0 until newsJsonArray.length()) {
@@ -41,16 +48,24 @@ class MainActivity : AppCompatActivity(), newsItemClicked {
                     )
                     newsArray.add(news)
                 }
+                mAdapter.updateNews(newsArray)
             },
-            {
+            Response.ErrorListener{ error ->
 
             }
-        )
+        ){
+            @Throws (AuthFailureError::class)
+            override fun getHeaders(): Map<String, String> {
+                val params: MutableMap<String,String> = HashMap()
+                params["User-Agent"] = "Mozilla/5.0"
+                return params
+            }
+        }
         //queue.add(jsonObjectRequest)
-        //MySingleton.getInstance(this)
+        VolleySingleton.getInstance(this).addToRequestQueue(getRequest)
     }
 
-    override fun OnItemClicked(Item: String) {
-        Toast.makeText(this,"${Item}th item was clicked",Toast.LENGTH_SHORT).show()
+    override fun OnItemClicked(Item: News) {
+
     }
 }
