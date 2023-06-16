@@ -16,6 +16,7 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.google.android.material.navigation.NavigationView
 import kotlin.jvm.Throws
 
 class MainActivity : AppCompatActivity(), newsItemClicked {
@@ -27,11 +28,16 @@ class MainActivity : AppCompatActivity(), newsItemClicked {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawerLayout)
-
+        val navView = findViewById<NavigationView>(R.id.navView)
         toggle = ActionBarDrawerToggle(this,drawerLayout,R.string.open,R.string.close)
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        //navView.setNavigationItemSelectedListener {
+        //    when(it.itemId) {
+        //        R.id.miItem1 ->
+        //    }
+        //}
 
         val recyclerView = findViewById<RecyclerView>(R.id.RvLayout)
         recyclerView.layoutManager = LinearLayoutManager(this)
