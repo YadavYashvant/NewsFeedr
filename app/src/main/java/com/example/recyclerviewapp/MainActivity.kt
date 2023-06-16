@@ -3,9 +3,12 @@ package com.example.recyclerviewapp
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.Window
 import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.browser.customtabs.CustomTabsIntent
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.AuthFailureError
@@ -16,13 +19,20 @@ import com.android.volley.toolbox.Volley
 import kotlin.jvm.Throws
 
 class MainActivity : AppCompatActivity(), newsItemClicked {
-
+    lateinit var toggle: ActionBarDrawerToggle
     private lateinit var mAdapter:NewsListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val drawerLayout = findViewById<DrawerLayout>(R.id.drawerLayout)
+
+        toggle = ActionBarDrawerToggle(this,drawerLayout,R.string.open,R.string.close)
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         val recyclerView = findViewById<RecyclerView>(R.id.RvLayout)
         recyclerView.layoutManager = LinearLayoutManager(this)
         fetchdata()
@@ -68,6 +78,12 @@ class MainActivity : AppCompatActivity(), newsItemClicked {
         VolleySingleton.getInstance(this).addToRequestQueue(getRequest)
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(toggle.onOptionsItemSelected(item)) {
+            return true
+        }
+        return super.onOptionsItemSelected(item)
+    }
     override fun OnItemClicked(Item: News) {
         val builder = CustomTabsIntent.Builder()
         val customTabsIntent = builder.build()
