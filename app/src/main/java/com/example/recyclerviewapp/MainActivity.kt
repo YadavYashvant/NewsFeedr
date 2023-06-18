@@ -1,5 +1,6 @@
 package com.example.recyclerviewapp
 
+import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -16,27 +17,31 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.example.recyclerviewapp.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
 import kotlin.jvm.Throws
 
 class MainActivity : AppCompatActivity(), newsItemClicked {
     lateinit var toggle: ActionBarDrawerToggle
     private lateinit var mAdapter:NewsListAdapter
-
+    lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        //setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawerLayout)
         val navView = findViewById<NavigationView>(R.id.navView)
         toggle = ActionBarDrawerToggle(this,drawerLayout,R.string.open,R.string.close)
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        //val intent: Intent
         //navView.setNavigationItemSelectedListener {
-        //    when(it.itemId) {
-        //        R.id.miItem1 ->
-        //    }
+
         //}
 
         val recyclerView = findViewById<RecyclerView>(R.id.RvLayout)
@@ -94,5 +99,18 @@ class MainActivity : AppCompatActivity(), newsItemClicked {
         val builder = CustomTabsIntent.Builder()
         val customTabsIntent = builder.build()
         customTabsIntent.launchUrl(this,Uri.parse(Item.url))
+    }
+
+    fun openHome(item: MenuItem) {
+        finish()
+    }
+
+    fun openSetting(item: MenuItem) {
+        intent = Intent(this,SettingsActivity::class.java)
+        startActivity(intent)
+    }
+    fun openAbout(item: MenuItem) {
+        intent = Intent(this,AboutActivity::class.java)
+        startActivity(intent)
     }
 }
