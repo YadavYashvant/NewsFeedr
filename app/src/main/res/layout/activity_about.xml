@@ -5,21 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AboutActivity"
-    android:background="@drawable/blurredbg_about">
+    android:background="#E4F0B2">
 
     <TextView
         android:id="@+id/txtAbout"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginTop="30dp"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:text="ABOUT APP"
         android:textAlignment="center"
         android:gravity="center"
         android:textSize="50sp"
         android:textStyle="bold"
         android:letterSpacing=".03"
-        android:fontFamily="sans-serif-black"
+        android:fontFamily="@font/geologica_auto_bold"
         app:layout_constraintLeft_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,7 +36,9 @@
             android:layout_height="match_parent"
             android:text="@string/AbtApp"
             android:textStyle="italic"
-            android:textColor="@color/silver"
+
+            android:fontFamily="@font/geologica_auto_regular"
+            android:textColor="#0E415C"
             android:textAlignment="center"
             android:textSize="20sp"
             android:layout_margin="30dp"
