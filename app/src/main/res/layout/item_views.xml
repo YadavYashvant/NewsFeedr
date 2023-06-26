@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="30dp"
+    android:background="@drawable/txt_container"
     >
     <ImageView
         android:id="@+id/image"
@@ -22,24 +23,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:fontFamily="sans-serif-condensed-light"
+        android:textSize="16sp"
+        android:fontFamily="@font/geologica_auto_bold"
         android:maxLines="2"
         android:ellipsize="end"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/image"
         android:layout_marginTop="12dp"
-        android:layout_margin="5dp"/>
+        android:padding="5dp"
+        android:layout_margin="10dp"/>
     <TextView
         android:id="@+id/author"
+        android:layout_marginLeft="5dp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-smallcaps"
+        android:fontFamily="@font/geologica_auto_regular"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titleItem"
+        android:padding="2dp"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
