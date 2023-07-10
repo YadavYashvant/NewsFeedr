@@ -27,11 +27,7 @@ class MainActivity : AppCompatActivity(), newsItemClicked {
     lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.activity_main)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
-
+        setContentView(R.layout.activity_main)
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawerLayout)
         val navView = findViewById<NavigationView>(R.id.navView)
         toggle = ActionBarDrawerToggle(this,drawerLayout,R.string.open,R.string.close)
@@ -104,10 +100,6 @@ class MainActivity : AppCompatActivity(), newsItemClicked {
         finish()
     }
 
-    fun openSetting(item: MenuItem) {
-        intent = Intent(this,SettingsActivity::class.java)
-        startActivity(intent)
-    }
     fun openAbout(item: MenuItem) {
         intent = Intent(this,AboutActivity::class.java)
         startActivity(intent)

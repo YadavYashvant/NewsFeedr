@@ -8,11 +8,6 @@
         />
 
     <item
-        android:id="@+id/miItem2"
-        android:onClick="openSetting"
-        android:title="Settings"/>
-
-    <item
         android:id="@+id/miItem3"
         android:onClick="openAbout"
         android:title="About app"/>
