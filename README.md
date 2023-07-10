@@ -5,7 +5,7 @@ On opening the app in android studio, replace the apiKey value in url variable t
 which you can obtain from newsapi.org.<br>
 Now you are good to go.
 
-##vAbout App
+## About App
 This app uses volley library and Glide library to fetch data with news api and it is an application of recyclerview in android.<br>
 Chrome custom tabs are also used in this app.<br>
 User can read the news without being redirected to chrome or any other browser.<br><br>
