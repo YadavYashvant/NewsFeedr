@@ -1,6 +1,6 @@
 # NewsFeedr
 
-##Running the app
+## Running the app
 On opening the app in android studio, replace the apiKey value in url variable to your api key <br>
 which you can obtain from newsapi.org.<br>
 Now you are good to go.
