@@ -49,7 +49,8 @@ class MainActivity : AppCompatActivity(), newsItemClicked {
 
     private fun fetchdata(){
         //val queue = Volley.newRequestQueue(this)
-        val url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=eeed14b913a74d1291c2ff7d426cf3b8"
+        //INSERT API KEY(in the apiKey value)
+        val url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=insert_your_apikey_here"
         val getRequest:JsonObjectRequest = object : JsonObjectRequest(
             Request.Method.GET,
             url,
