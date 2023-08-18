@@ -2,15 +2,15 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.RecyclerViewApp" parent="Theme.AppCompat.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#576F8A</item>
-        <item name="colorPrimaryVariant">#4D7272</item>
+        <item name="colorPrimary">#14213D</item>
+        <item name="colorPrimaryVariant">#14213D</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/blue</item>
         <item name="colorSecondaryVariant">@color/blue</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">#576F8A</item>
+        <item name="android:statusBarColor" tools:targetApi="l">#14213D</item>
         <!-- Customize your theme here. -->
     </style>
 </resources>

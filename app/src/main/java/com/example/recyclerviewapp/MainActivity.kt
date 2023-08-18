@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity(), newsItemClicked {
 
         
         //INSERT API KEY BELOW :-
-        val url = "ENTER YOUR API KEY HERE!"
+        val url = "https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=eeed14b913a74d1291c2ff7d426cf3b8"
 
         
         val getRequest:JsonObjectRequest = object : JsonObjectRequest(
