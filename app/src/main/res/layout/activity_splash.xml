@@ -8,33 +8,31 @@
 
     <TextView
         android:id="@+id/txtsplash"
-        android:layout_margin="10dp"
-        android:padding="5dp"
         android:layout_width="match_parent"
         android:layout_height="150dp"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/barriecito"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="NewsFeedr"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="60sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="NewsFeedr"
-        android:textSize="60sp"
-        android:textAlignment="center"
-        android:gravity="center"
-        android:fontFamily="@font/yatraone"
-        android:textColor="@color/black"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animationview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtsplash"
+        app:layout_constraintTop_toTopOf="parent"
         app:lottie_autoPlay="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/newsfeedrel" />
-
+        app:lottie_rawRes="@raw/newsfeedrlo" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
