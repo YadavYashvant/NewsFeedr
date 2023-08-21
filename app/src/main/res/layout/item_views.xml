@@ -15,17 +15,19 @@
         android:background="@drawable/round_outline"
         android:clipToOutline="true"
         android:layout_width="0dp"
+        android:src="@drawable/ic_launcher_foreground"
         android:layout_height="250dp"
         android:scaleType="centerCrop"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent"
+        />
 
     <TextView
         android:id="@+id/titleItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="Loading....."
         android:textSize="16sp"
         android:fontFamily="@font/geologica_auto_bold"
         android:maxLines="7"
